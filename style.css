@@ -8,13 +8,15 @@ body {
     overflow: hidden;
 }
 .game-container {
-    position: absolute;
+    /*position: absolute;*/
+    position: relative;
     width: 352px;
     height: 198px;
     margin: 0 auto;
     outline: 1px solid #fff;
-    transform: scale(3) translateY(50%);
+    /*transform: scale(3) translateY(50%);*/
 }
-canvas {
+/*canvas {
     image-rendering: pixelated;
 }
+    */
