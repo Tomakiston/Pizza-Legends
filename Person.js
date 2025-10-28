@@ -55,3 +55,4 @@ class Person extends GameObject {
         this.sprite.setAnimation("idle-" + this.direction);
     }
 }
+//paramos aqui, fazer o npcB andar
