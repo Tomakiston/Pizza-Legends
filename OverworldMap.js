@@ -66,7 +66,7 @@ class OverworldMap {
             return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`;
         })
 
-        if(!this.isCutscenePlaying && match && match.talking.lenght) {
+        if(!this.isCutscenePlaying && match && match.talking.length) {
             this.startCutscene(match.talking[0].events);
         }
     }
@@ -184,7 +184,7 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "TextMessage", text: "Você conseguiu!", faceHero: "npcB"}
+                            {type: "textMessage", text: "Você conseguiu!", faceHero: "npcB"}
                         ]
                     }
                 ]

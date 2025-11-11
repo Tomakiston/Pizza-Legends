@@ -69,7 +69,7 @@ class Overworld {
         this.startGameLoop();
 
         this.map.startCutscene([
-            {type: "TextMessage", text: "Essa é a primeira mensagem!"}
+            {type: "textMessage", text: "Essa é a primeira mensagem!"}
         ])
     }
 }
