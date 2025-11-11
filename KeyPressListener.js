@@ -1,11 +1,11 @@
 class KeyPressListener {
-    constructor(keyCode, callBack) {
+    constructor(keyCode, callback) {
         let keySafe = true;
         this.keydownFunction = function(event) {
             if(event.code === keyCode) {
                 if(keySafe) {
                     keySafe = false;
-                    callBack();
+                    callback();
                 }
             }
         }

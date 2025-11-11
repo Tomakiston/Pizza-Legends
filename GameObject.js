@@ -32,7 +32,7 @@ class GameObject {
     }
 
     async doBehaviorEvent(map) {
-        if(map.isCutscenePlaying || this.behaviorLoop.length === 0) {
+        if(map.isCutscenePlaying || this.behaviorLoop.length === 0 || this.isStanding) {
             return;
         }
 
