@@ -52,15 +52,22 @@ class Overworld {
     startMap(mapConfig) {
         this.map = new OverworldMap(mapConfig);
         this.map.overworld = this;
-        this.mountObjects();
+        this.map.mountObjects();
     }
 
     init() {
-        this.startMap(window.OverworldMaps.DemoRoom);
+        this.startMap(window.OverworldMaps.Kitchen);
+
         this.bindActionInput();
         this.bindHeroPositionCheck();
+
         this.directionInput = new DirectionInput();
         this.directionInput.init();
+
         this.startGameLoop();
+
+        this.map.startCutscene([
+            {type: "TextMessage", text: "Essa é a primeira mensagem!"}
+        ])
     }
 }
