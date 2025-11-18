@@ -120,9 +120,9 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text: "Estou ocupado...", faceHero: "npcA"},
-                            {type: "textMessage", text: "Vai embora!"},
-                            {who: "hero", type: "walk", direction: "up"}
+                            { type: "textMessage", text: "Estou ocupado...", faceHero: "npcA" },
+                            { type: "textMessage", text: "Vai embora!" },
+                            { who: "hero", type: "walk", direction: "up" },
                         ]
                     }
                 ]
@@ -138,7 +138,7 @@ window.OverworldMaps = {
                     { type: "walk", direction: "right" },
                     { type: "walk", direction: "down" }
                 ]*/
-            })
+            }),
         },
         walls: {
             [utils.asGridCoord(7,6)]: true,
@@ -155,7 +155,7 @@ window.OverworldMaps = {
                         {type: "textMessage", text: "Você não pode ficar ai dentro!"},
                         {who: "npcB", type: "walk", direction: "right"},
                         {who: "hero", type: "walk", direction: "down"},
-                        {who: "hero", type: "walk", direction: "left"}//paramos aqui
+                        {who: "hero", type: "walk", direction: "left"}
                     ]
                 }
             ],

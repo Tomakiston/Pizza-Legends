@@ -58,7 +58,7 @@ class Overworld {
     }
 
     init() {
-        this.startMap(window.OverworldMaps.Kitchen);
+        this.startMap(window.OverworldMaps.DemoRoom);
 
         this.bindActionInput();
         this.bindHeroPositionCheck();
