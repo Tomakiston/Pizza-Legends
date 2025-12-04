@@ -37,23 +37,48 @@ class Combatant {
             <img class="Combatant_type" src="${this.icon}" alt="${this.type}">
 
             <svg viewBox="0 0 26 3" class="Combatant_life-container">
-                <rect x=0 y=0 width="0%" height=1 fill="#82ff71">
-                <rect x=0 y=1 width="0%" height=2 fill="#3ef126">
+                <rect x=0 y=0 width="0%" height=1 fill="#82FF71">
+                <rect x=0 y=1 width="0%" height=2 fill="#3EF126">
             </svg>
 
             <svg viewBox="0 0 26 2" class="Combatant_xp-container">
-                <rect x=0 y=0 width="0%" height=1 fill="#ffd76a">
-                <rect x=0 y=1 width="0%" height=1 fill="#ffc934">
+                <rect x=0 y=0 width="0%" height=1 fill="#FFD76A">
+                <rect x=0 y=1 width="0%" height=1 fill="#FFC934">
             </svg>
 
             <p class="Combatant_status"></p>
-            `); //paramos aqui
+            `);
+
+            this.pizzaElement = document.createElement("img");
+            this.pizzaElement.classList.add("Pizza");
+            this.pizzaElement.setAttribute("src", this.src);
+            this.pizzaElement.setAttribute("alt", this.name);
+            this.pizzaElement.setAttribute("data-team", this.team);
+
+            this.hpFills = this.hudElement.querySelectorAll(".Combatant_life-container > rect");
+            this.xpFills = this.hudElement.querySelectorAll(".Combatant_xp-container > rect");
     }
 
     update(changes = {}) {
+        Object.keys(changes).forEach(key => {
+            this[key] = changes[key]
+        });
+
+        this.hudElement.setAttribute("data-active", this.isActive);
+        this.pizzaElement.setAttribute("data-active", this.isActive);
+
+        this.hpFills.forEach(rect => rect.style.width = `${this.hpPercent}%`)
+        this.xpFills.forEach(rect => rect.style.width = `${this.xpPercent}%`)
+
+        this.hudElement.querySelector(".Combatant_level").innerText = this.level;
     }
     
     init(container) {
+        this.createElement();
 
+        container.appendChild(this.hudElement);
+        container.appendChild(this.pizzaElement);
+
+        this.update();
     }
 }
