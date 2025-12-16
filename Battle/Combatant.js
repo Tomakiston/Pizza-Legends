@@ -32,18 +32,18 @@ class Combatant {
             <p class="Combatant_level"></p>
 
             <div class="Combatant_character_crop">
-                <img class="Combatant_character" alt="${this.name}" src="${this.src}">
+                <img class="Combatant_character" alt="${this.name}" src="${this.src}"/>
             </div>
-            <img class="Combatant_type" src="${this.icon}" alt="${this.type}">
+            <img class="Combatant_type" src="${this.icon}" alt="${this.type}"/>
 
             <svg viewBox="0 0 26 3" class="Combatant_life-container">
-                <rect x=0 y=0 width="0%" height=1 fill="#82FF71">
-                <rect x=0 y=1 width="0%" height=2 fill="#3EF126">
+                <rect x=0 y=0 width="0%" height=1 fill="#82FF71"/>
+                <rect x=0 y=1 width="0%" height=2 fill="#3EF126"/>
             </svg>
 
             <svg viewBox="0 0 26 2" class="Combatant_xp-container">
-                <rect x=0 y=0 width="0%" height=1 fill="#FFD76A">
-                <rect x=0 y=1 width="0%" height=1 fill="#FFC934">
+                <rect x=0 y=0 width="0%" height=1 fill="#FFD76A"/>
+                <rect x=0 y=1 width="0%" height=1 fill="#FFC934"/>
             </svg>
 
             <p class="Combatant_status"></p>

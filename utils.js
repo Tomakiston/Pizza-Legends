@@ -25,6 +25,13 @@ const utils = {
 
         return {x,y};
     },
+    wait(ms) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve();
+            }, ms)
+        })
+    },
     oppositeDirection(direction) {
         if(direction === "left") {return "right"}
         if(direction === "right") {return "left"}

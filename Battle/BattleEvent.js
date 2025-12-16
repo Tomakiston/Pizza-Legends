@@ -11,7 +11,7 @@ class BattleEvent {
         .replace("{ACTION}", this.event.action?.name)
 
         const message = new TextMessage({
-            text: this.event.text,
+            text,
             onComplete: () => {
                 resolve();
             }
