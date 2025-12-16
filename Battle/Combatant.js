@@ -71,8 +71,27 @@ class Combatant {
         this.xpFills.forEach(rect => rect.style.width = `${this.xpPercent}%`)
 
         this.hudElement.querySelector(".Combatant_level").innerText = this.level;
+
+        const statusElement = this.hudElement.querySelector(".Combatant_status");
+        if(this.status) {
+            statusElement.innerText = this.status.type;
+            statusElement.style.display = "block";
+        } else {
+            statusElement.innerText = "";
+            statusElement.style.display = "none";
+        }
+
     }
-    
+
+    getReplacedEvents(originalEvents) {
+        if(this.status?.type === "clumsy" && utils.randomFromArray([true, false, false])) {
+            return [
+                {type:"textMessage", text:`${this.name} cai!`}
+            ]
+        }
+        return originalEvents;
+    }
+    //paramos aqui
     init(container) {
         this.createElement();
 
