@@ -19,7 +19,6 @@ class TurnCycle {
         })
 
         const resultingEvents = submission.action.success;
-
         for (let i = 0; i < resultingEvents.length; i++) {
             const event = {
                 ...resultingEvents[i],
@@ -30,6 +29,24 @@ class TurnCycle {
             }
 
             await this.onNewEvent(event);
+        }
+
+        const postEvents = caster.getPostEvents();
+        for (let i = 0; i < postEvents.length; i++) {
+            const event = {
+                ...postEvents[i],
+                submission,
+                action: submission.action,
+                caster,
+                target: submission.target
+            }
+
+            await this.onNewEvent(event);
+        }
+
+        const expiredEvent = caster.decrementStatus();
+        if(event) {
+            await this.onNewEvent(expiredEvent);
         }
 
         this.currentTeam = this.currentTeam === "player" ? "enemy" : "player";

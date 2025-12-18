@@ -86,12 +86,39 @@ class Combatant {
     getReplacedEvents(originalEvents) {
         if(this.status?.type === "clumsy" && utils.randomFromArray([true, false, false])) {
             return [
-                {type:"textMessage", text:`${this.name} cai!`}
+                {type:"textMessage", text:`${this.name} se estabanou!`}
             ]
         }
         return originalEvents;
     }
-    //paramos aqui
+    
+    getPostEvents() {
+        if(this.status?.type === "saucy") {
+            return [
+                {type:"textMessage", text:"Se sentindo molhoso!"},
+                {type:"stateChange", recover:5, onCaster:true}
+            ]
+        }
+        return [];
+    }
+
+    decrementStatus() {
+        if(this.status?.expiresIn > 0) {
+            this.status.expiresIn -= 1;
+
+            if(this.status.expiresIn === 0) {
+                this.update({
+                    status: null
+                })
+                return {
+                    type: "textMessage",
+                    text: "Condição expirada!"
+                }
+            }
+        }
+        return null;
+    }
+
     init(container) {
         this.createElement();
 
