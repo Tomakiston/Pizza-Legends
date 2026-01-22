@@ -1,3 +1,4 @@
+//etapa 13 ok
 class BattleEvent {
     constructor(event, battle) {
         this.event = event;

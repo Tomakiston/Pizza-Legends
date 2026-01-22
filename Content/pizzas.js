@@ -1,3 +1,4 @@
+//etapa 13 ok
 window.PizzaTypes = {
     normal: "normal",
     spicy: "spicy",

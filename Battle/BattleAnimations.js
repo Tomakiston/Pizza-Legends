@@ -1,3 +1,4 @@
+//etapa 13 ok
 window.BattleAnimations = {
     async spin(event, onComplete) {
         const element = event.caster.pizzaElement;
@@ -20,7 +21,7 @@ window.BattleAnimations = {
         div.classList.add(caster.team === "player" ? "battle-glob-right" : "battle-glob-left");
         div.innerHTML = (`
             <svg viewBox="0 0 32 32" width="32" height="32">
-                <circle cx="16" cy="16" r="16" fill="${event.color}"/>
+                <circle cx="16" cy="16" r="16" fill="${event.color}" />
             </svg>
         `);
         div.addEventListener("animationend", () => {

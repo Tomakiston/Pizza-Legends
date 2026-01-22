@@ -1,3 +1,4 @@
+//etapa 13 ok
 class Combatant {
     constructor(config, battle) {
         Object.keys(config).forEach(key => {

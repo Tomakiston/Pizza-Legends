@@ -1,3 +1,4 @@
+//etapa 13 ok
 class Battle {
     constructor() {
         this.combatants = {

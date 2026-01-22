@@ -37,7 +37,7 @@
         visibility: hidden;
     }
 }
-.damage-damage-blink {
+.battle-damage-blink {
     animation: battle-damage-blink 0.3s steps(2, start) infinite;
 }
 @keyframes battle-spin-right {
@@ -57,7 +57,7 @@
     animation: battle-spin-left 0.8s;
 }
 
-.glob.orb {
+.glob-orb {
     position: absolute;
     width: 32px;
     height: 32px;
