@@ -59,7 +59,7 @@ class SubmissionMenu {
     }
 
     menuSubmit(action, instanceId = null) {
-        this.keyBirdMenu?.end();
+        this.keyboardMenu?.end();
         this.onComplete({
             action,
             target: action.targetType === "friendly" ? this.caster : this.enemy
