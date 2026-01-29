@@ -24,5 +24,24 @@ window.Actions = {
             { type:"stateChange", status:{type:"clumsy", expiresIn:3}},
             { type:"textMessage", text:"{TARGET} está escorregadio!"}
         ]
+    },
+    item_recoverStatus: {
+        name: "Mini Forno",
+        description: "Quentinha como se fosse nova",
+        targetType: "friendly",
+        success: [
+            { type:"textMessage", text:"{CASTER} usou {ACTION}!" },
+            { type:"stateChange", status:null},
+            { type:"textMessage", text:"Novinha em folha!"}
+        ]
+    },
+    item_recoverHp: {
+        name: "Parmesão",
+        targetType: "friendly",
+        success: [
+            { type:"textMessage", text:"{CASTER} salpicou um pouco de {ACTION}!"},
+            { type:"stateChange", recover:10},
+            { type:"textMessage", text:"{CASTER} recuperou HP!"}
+        ]
     }
 }
