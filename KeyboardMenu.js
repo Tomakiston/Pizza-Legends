@@ -44,7 +44,7 @@ class KeyboardMenu {
 
     createElement() {
         this.element = document.createElement("div");
-        this.element.classList.add("keyboardMenu");
+        this.element.classList.add("KeyboardMenu");
 
         this.descriptionElement = document.createElement("div");
         this.descriptionElement.classList.add("DescriptionBox");
