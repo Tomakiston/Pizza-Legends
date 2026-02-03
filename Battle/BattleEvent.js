@@ -1,4 +1,3 @@
-//etapa 13 ok
 class BattleEvent {
     constructor(event, battle) {
         this.event = event;
@@ -70,6 +69,7 @@ class BattleEvent {
         const menu = new SubmissionMenu({
             caster: this.event.caster,
             enemy: this.event.enemy,
+            items: this.battle.items,
             onComplete: submission => {
                 resolve(submission);
             }

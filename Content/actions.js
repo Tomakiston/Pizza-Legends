@@ -1,4 +1,3 @@
-//etapa 13 ok
 window.Actions = {
     damage1: {
         name: "Whomp!",
