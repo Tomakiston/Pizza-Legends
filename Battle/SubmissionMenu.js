@@ -7,15 +7,17 @@ class SubmissionMenu {
         let quantityMap = {};
 
         items.forEach(item => {
-            let existing = quantityMap[item.actionId];
+            if(item.team === caster.team) {
+                let existing = quantityMap[item.actionId];
             
-            if(existing) {
-                existing.quantity += 1;
-            } else {
-                quantityMap[item.actionId] = {
-                    actionId: item.actionId,
-                    quantity: 1,
-                    instanceId: item.instanceId
+                if(existing) {
+                    existing.quantity += 1;
+                } else {
+                    quantityMap[item.actionId] = {
+                        actionId: item.actionId,
+                        quantity: 1,
+                        instanceId: item.instanceId
+                    }
                 }
             }
         })
