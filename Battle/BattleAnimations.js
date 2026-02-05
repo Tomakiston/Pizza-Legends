@@ -1,4 +1,4 @@
-//etapa 13 ok
+//etapa 15 ok
 window.BattleAnimations = {
     async spin(event, onComplete) {
         const element = event.caster.pizzaElement;

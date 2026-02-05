@@ -73,6 +73,14 @@ class KeyboardMenu {
                 return el.dataset.button < current && !el.disabled;
             })
 
+            prevButton?.focus();
+        })
+        this.down = new KeyPressListener("ArrowDown", () => {
+            const current = Number(this.prevFocus.getAttribute("data-button"));
+            const nextButton = Array.from(this.element.querySelectorAll("button[data-button]")).reverse().find(el => {
+                return el.dataset.button < current && !el.disabled;
+            })
+
             nextButton?.focus();
         })
     }

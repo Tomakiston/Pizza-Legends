@@ -1,6 +1,8 @@
+//etapa 15 ok
 window.Actions = {
     damage1: {
         name: "Whomp!",
+        description: "Soco macio de massa",
         success: [
             { type:"textMessage", text:"{CASTER} usou {ACTION}!" },
             { type:"animation", animation:"spin" },
@@ -9,6 +11,7 @@ window.Actions = {
     },
     saucyStatus: {
         name: "Aperto de Tomate",
+        description: "Aplica o status saucy",
         targetType: "friendly",
         success: [
             { type:"textMessage", text:"{CASTER} usou {ACTION}!" },
@@ -17,6 +20,7 @@ window.Actions = {
     },
     clumsyStatus: {
         name: "Azeite de Oliva",
+        description: "Uma bagunça escorregadia de delicias",
         success: [
             { type:"textMessage", text:"{CASTER} usou {ACTION}!" },
             { type:"animation", animation:"glob", color:"#dafd2a"},

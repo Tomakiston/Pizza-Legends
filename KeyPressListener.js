@@ -1,3 +1,4 @@
+//etapa 15 ok
 class KeyPressListener {
     constructor(keyCode, callback) {
         let keySafe = true;
@@ -8,13 +9,13 @@ class KeyPressListener {
                     callback();
                 }
             }
-        }
+        };
 
         this.keyupFunction = function(event) {
             if(event.code === keyCode) {
                 keySafe = true;
             }
-        }
+        };
 
         document.addEventListener("keydown", this.keydownFunction);
         document.addEventListener("keyup", this.keyupFunction);

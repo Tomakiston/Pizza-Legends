@@ -1,3 +1,4 @@
+//etapa 15 ok
 class Battle {
     constructor() {
         this.combatants = {
@@ -19,7 +20,7 @@ class Battle {
                 maxHp: 50,
                 xp: 20,
                 maxXp: 100,
-                level: 1
+                level: 1,
             }, this),
             "enemy2": new Combatant({
                 ...Pizzas.f001,
@@ -28,7 +29,7 @@ class Battle {
                 maxHp: 50,
                 xp: 30,
                 maxXp: 100,
-                level: 1
+                level: 1,
             }, this)
         }
         this.activeCombatants = {
@@ -39,6 +40,7 @@ class Battle {
             {actionId:"item_recoverStatus", instanceId:"p1", team:"player"},
             {actionId:"item_recoverStatus", instanceId:"p2", team:"player"},
             {actionId:"item_recoverStatus", instanceId:"p3", team:"enemy"},
+
             {actionId:"item_recoverHp", instanceId:"p4", team:"player"}
         ]
     }

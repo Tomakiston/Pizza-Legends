@@ -1,3 +1,4 @@
+//etapa 15 ok
 class SubmissionMenu {
     constructor({caster, enemy, onComplete, items}) {
         this.caster = caster;
@@ -56,7 +57,7 @@ class SubmissionMenu {
                     handler: () => {
                         //ver opções de pizza
                     }
-                }
+                },
             ],
             attacks: [
                 ...this.caster.actions.map(key => {

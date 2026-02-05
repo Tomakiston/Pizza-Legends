@@ -1,3 +1,4 @@
+//etapa 15 ok
 class TurnCycle {
     constructor({battle, onNewEvent}) {
         this.battle = battle;

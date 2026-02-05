@@ -1,4 +1,4 @@
-//etapa 13 ok
+//etapa 15 ok, resalva pro flops over
 class Combatant {
     constructor(config, battle) {
         Object.keys(config).forEach(key => {

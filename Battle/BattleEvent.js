@@ -1,3 +1,4 @@
+//etapa 15 ok
 class BattleEvent {
     constructor(event, battle) {
         this.event = event;
@@ -24,9 +25,9 @@ class BattleEvent {
 
         let who = this.event.onCaster ? caster : target;
 
-        if(action.targetType === "friendly") {
+        /*if(action.targetType === "friendly") {
             who = caster;
-        }
+        }*/
 
         if(damage) {
             target.update({

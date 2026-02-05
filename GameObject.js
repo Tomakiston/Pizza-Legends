@@ -1,3 +1,4 @@
+//etapa 15 ok
 class GameObject {
     constructor(config) {
         this.id = null;
