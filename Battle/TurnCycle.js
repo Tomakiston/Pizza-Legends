@@ -1,4 +1,3 @@
-//etapa 15 ok
 class TurnCycle {
     constructor({battle, onNewEvent}) {
         this.battle = battle;
@@ -18,6 +17,20 @@ class TurnCycle {
             caster,
             enemy
         })
+
+        if(submission.replacement) {
+            await this.onNewEvent({
+                type: "replace",
+                replacement: submission.replacement
+            })
+            await this.onNewEvent({
+                type: "textMessage",
+                text: `Eu escolho você ${submission.replacement.name}!`
+            })
+
+            this.nextTurn();
+            return;
+        }
 
         if(submission.instanceId) {
             this.battle.items = this.battle.items.filter(i => i.instanceId !== submission.instanceId);

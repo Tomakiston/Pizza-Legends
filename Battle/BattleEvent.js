@@ -68,9 +68,12 @@ class BattleEvent {
 
     submissionMenu(resolve) {
         const menu = new SubmissionMenu({
-            caster: this.event.caster,
+            caster: caster,
             enemy: this.event.enemy,
             items: this.battle.items,
+            replacements: Object.values(this.battle.combatants).filter(c => {
+                return c.id !== caster.id && c.team === caster.team && c.hp > 0;
+            }),
             onComplete: submission => {
                 resolve(submission);
             }

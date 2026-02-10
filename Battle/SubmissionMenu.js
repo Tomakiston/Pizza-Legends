@@ -1,8 +1,8 @@
-//etapa 15 ok
 class SubmissionMenu {
-    constructor({caster, enemy, onComplete, items}) {
+    constructor({caster, enemy, onComplete, items, replacements}) {
         this.caster = caster;
         this.enemy = enemy;
+        this.replacements = replacements;
         this.onComplete = onComplete;
 
         let quantityMap = {};
@@ -83,6 +83,18 @@ class SubmissionMenu {
                         },
                         handler: () => {
                             this.menuSubmit(action, item.instanceId);
+                        }
+                    }
+                }),
+                backOption
+            ],
+            replacements: [
+                ...this.replacements.map(replacement => {
+                    return {
+                        label: replacement.name,
+                        description: replacement.description,
+                        handler: () => {
+                            this.menuSubmitReplacement(replacement);
                         }
                     }
                 }),
