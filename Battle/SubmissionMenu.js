@@ -56,6 +56,7 @@ class SubmissionMenu {
                     description: "Troque para uma outra pizza",
                     handler: () => {
                         //ver opções de pizza
+                        this.keyboardMenu.setOptions(this.getPages().replacements);
                     }
                 },
             ],
@@ -101,6 +102,13 @@ class SubmissionMenu {
                 backOption
             ]
         }
+    }
+
+    menuSubmitReplacement(replacement) {
+        this.keyboardMenu?.end();
+        this.onComplete({
+            replacement
+        })
     }
 
     menuSubmit(action, instanceId = null) {

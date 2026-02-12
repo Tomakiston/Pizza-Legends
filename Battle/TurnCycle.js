@@ -49,6 +49,24 @@ class TurnCycle {
             await this.onNewEvent(event);
         }
 
+        const targetDead = submission.target.hp <= 0;
+        if(targetDead) {
+            await this.onNewEvent({
+                type: "textMessage",
+                text: `${submission.target.name} está arruinado!`
+            })
+        }
+
+        const winner = this.getWinningTeam();
+        if(winner) {
+            await this.onNewEvent({
+                type:  "textMessage",
+                text: "Vencedor!"
+            })
+
+            return;
+        }
+
         const postEvents = caster.getPostEvents();
         for (let i = 0; i < postEvents.length; i++) {
             const event = {

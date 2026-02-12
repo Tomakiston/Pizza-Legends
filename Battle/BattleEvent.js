@@ -1,4 +1,3 @@
-//etapa 15 ok
 class BattleEvent {
     constructor(event, battle) {
         this.event = event;
@@ -80,6 +79,34 @@ class BattleEvent {
         })
 
         menu.init(this.battle.element);
+    }
+
+    replacementMenu(resolve) {
+        const menu = new ReplacementMenu({
+            replacements: Object.values(this.battle.combatants).filter(c => {
+                return c.team === this.event.team && c.hp > 0;
+            }),
+            onComplete: replacement => {
+                resolve(replacement);
+            }
+        })
+
+        menu.init(this.battle.element);
+    }
+
+    async replace(resolve) {
+        const {replacement} = this.event;
+        const prevCombatant = this.battle.combatants[this.battle.activeCombatants[replacement.team]];
+
+        this.battle.activeCombatants[replacement.team] = null;
+        prevCombatant.update();
+        await utils.wait(400);
+
+        this.battle.activeCombatants[replacement.team] = replacement.id;
+        replacement.update();
+        await utils.wait(400);
+
+        resolve();
     }
 
     animation(resolve) {
