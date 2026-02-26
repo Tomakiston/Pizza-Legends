@@ -55,6 +55,21 @@ class TurnCycle {
                 type: "textMessage",
                 text: `${submission.target.name} está arruinado!`
             })
+
+            if(submission.target.team === "enemy") {
+                const playerActivePizzaId = this.battle.activeCombatants.player;
+                const xp = submission.target.givesXp;
+
+                await this.onNewEvent({
+                    type: "textMessage",
+                    text: `Ganhou ${xp} XP!`
+                })
+                await this.onNewEvent({
+                    type: "giveXp",
+                    xp,
+                    combatant: this.battle.combatants[playerActivePizzaId]
+                })
+            }
         }
 
         const winner = this.getWinningTeam();

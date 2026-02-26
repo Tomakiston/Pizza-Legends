@@ -16,9 +16,9 @@
 .Team .active-pizza-indicator {
     display: none;
 }
-.Team[data-dead="true"] .dead-pizza {
+.Team [data-dead="true"] .dead-pizza {
     display: block;
 }
-.Team[data-active="true"] .active-pizza-indicator {
+.Team [data-active="true"] .active-pizza-indicator {
     display: block;
 }

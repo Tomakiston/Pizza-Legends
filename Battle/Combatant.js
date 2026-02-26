@@ -1,4 +1,3 @@
-//etapa 15 ok, resalva pro flops over
 class Combatant {
     constructor(config, battle) {
         Object.keys(config).forEach(key => {
@@ -19,6 +18,10 @@ class Combatant {
 
     get isActive() {
         return this.battle.activeCombatants[this.team] === this.id;
+    }
+
+    get givesXp() {
+        return this.level * 20;
     }
 
     createElement() {
