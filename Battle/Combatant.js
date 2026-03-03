@@ -4,6 +4,8 @@ class Combatant {
             this[key] = config[key];
         })
 
+        this.hp = typeof(this.hp === "undefined" ? this.maxHp : this.hp);
+
         this.battle = battle;
     }
 

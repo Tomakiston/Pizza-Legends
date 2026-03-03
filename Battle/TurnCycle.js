@@ -79,6 +79,8 @@ class TurnCycle {
                 text: "Vencedor!"
             })
 
+            this.onWinner(winner);
+
             return;
         }
 
