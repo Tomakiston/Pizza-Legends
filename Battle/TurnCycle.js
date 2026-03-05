@@ -1,7 +1,9 @@
 class TurnCycle {
-    constructor({battle, onNewEvent}) {
+    constructor({battle, onNewEvent, onWinner}) {
         this.battle = battle;
         this.onNewEvent = onNewEvent;
+        this.onWinner = onWinner;
+        
         this.currentTeam = "player";
     }
 
