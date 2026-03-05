@@ -33,6 +33,8 @@ class TurnCycle {
         }
 
         if(submission.instanceId) {
+            this.battle.usedInstanceIds[submission.instanceId] = true;
+
             this.battle.items = this.battle.items.filter(i => i.instanceId !== submission.instanceId);
         }
 
@@ -144,10 +146,10 @@ class TurnCycle {
     }
 
     async init() {
-        /*await this.onNewEvent({
+        await this.onNewEvent({
             type: "textMessage",
-            text: "A batalha está começando!",
-        })*/
+            text: `${this.battle.enemy.name} quer brigar!`,
+        })
 
         this.turn();
     }
