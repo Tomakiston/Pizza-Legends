@@ -41,6 +41,14 @@ class Overworld {
         new KeyPressListener("Enter", () => {
             this.map.checkForActionCutscene();
         })
+
+        new KeyPressListener("Escape", () => {
+            if(!this.map.isCutscenePlaying) {
+                this.map.startCutscene([
+                    {type: "pause"}
+                ])
+            }
+        })
     }
 
     bindHeroPositionCheck() {
