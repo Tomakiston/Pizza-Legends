@@ -54,7 +54,12 @@ class OverworldMap {
                 event: events[i],
                 map: this
             })
-            await eventHandler.init();
+
+            const result = await eventHandler.init();
+            if(result === "LOST_BATTLE") {
+                break;
+            }
+
         }
 
         this.isCutscenePlaying = false;
@@ -69,7 +74,15 @@ class OverworldMap {
         })
 
         if(!this.isCutscenePlaying && match && match.talking.length) {
-            this.startCutscene(match.talking[0].events);
+            const relevantScenario = match.talking.find(scenario => {
+                return (scenario.required || []).every(sf => {
+                    return PlayerState.storyFlags[sf];
+                })
+            })
+
+            relevantScenario && this.startCutscene(relevantScenario.events);
+
+            //this.startCutscene(match.talking[0].events);
         }
     }
 
@@ -114,16 +127,24 @@ window.OverworldMaps = {
                 y: utils.withGrid(9),
                 src: "/images/characters/people/npc1.png",
                 behaviorLoop: [
-                    { type: "stand", direction: "left", time: 800 },
-                    { type: "stand", direction: "up", time: 800 },
-                    { type: "stand", direction: "right", time: 1200 },
-                    { type: "stand", direction: "up", time: 300 }
+                    {type: "stand", direction: "left", time: 800 },
+                    {type: "stand", direction: "up", time: 800 },
+                    {type: "stand", direction: "right", time: 1200 },
+                    {type: "stand", direction: "up", time: 300 }
                 ],
                 talking: [
                     {
+                        required: ["TALKED_TO_ERIO"],
                         events: [
-                            { type: "textMessage", text: "Estou ocupada...", faceHero: "npcA" },
-                            { type: "battle", enemyId: "beth"}
+                            {type: "textMessage", text: "Erio não é o máximo?", faceHero: "npcA"}
+                        ]
+                    },
+                    {
+                        events: [
+                            {type: "textMessage", text: "Vou te esmagar!", faceHero: "npcA" },
+                            {type: "battle", enemyId: "beth"},
+                            {type: "addStoryFlag", flag: "DEFEATED_BETH"},
+                            {type: "textMessage", text: "Você me esmagou como pimenta fraca.", faceHero: "npcA"}
                             //{ type: "textMessage", text: "Vai embora!" },
                             //{ who: "hero", type: "walk", direction: "up" },
                         ]
@@ -145,7 +166,8 @@ window.OverworldMaps = {
                 {
                     events: [
                         {type: "textMessage", text: "BAHAHA!", faceHero: "npcB"},
-                        {type: "battle", enemyId: "erio"}
+                        {type: "addStoryFlag", flag: "TALKED_TO_ERIO"}
+                        //{type: "battle", enemyId: "erio"}
                     ]
                 }
                ]
