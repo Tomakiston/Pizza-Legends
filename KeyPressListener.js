@@ -1,4 +1,3 @@
-//etapa 15 ok
 class KeyPressListener {
     constructor(keyCode, callback) {
         let keySafe = true;
