@@ -67,13 +67,33 @@ class Overworld {
         this.map.mountObjects();
 
         if(heroInitialState) {
-            this.map.gameObjects.hero.x = heroInitialState.x;
-            this.map.gameObjects.hero.y = heroInitialState.y;
-            this.map.gameObjects.hero.direction = heroInitialState.direction;
+            const {hero} = this.map.gameObjects;
+
+            this.map.removeWall(hero.x, hero.y)
+
+            hero.x = heroInitialState.x;
+            hero.y = heroInitialState.y;
+            direction = heroInitialState.direction;
+
+            this.map.addWall(hero.x, hero.y);
         }
     }
 
     init() {
+        this.progress = new Progress();
+
+        let initialHeroState = null;
+        
+        const saveFile = this.progress.getSaveFile();
+        if(saveFile) {
+            this.progress.load();
+            initialHeroState = {
+                x: this.progress.startingHeroX,
+                y: this.progress.startingHeroY,
+                direction: this.progress.startingHeroDirection
+            }
+        }
+
         this.hud = new Hud();
         this.hud.init(document.querySelector(".game-container"));
 

@@ -83,6 +83,7 @@ class OverworldEvent {
         this.map.isPaused = true;
 
         const menu = new PauseMenu({
+            progress: this.map.overworld.progress,
             onComplete: () => {
                 resolve();
 
