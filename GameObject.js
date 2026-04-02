@@ -1,4 +1,3 @@
-//etapa 15 ok
 class GameObject {
     constructor(config) {
         this.id = null;
@@ -10,7 +9,7 @@ class GameObject {
 
         this.sprite = new Sprite({
             gameObject: this,
-            src: config.src || "/images/characters/people/hero.png"
+            src: config.src || "images/characters/people/hero.png"
         });
 
         this.behaviorLoop = config.behaviorLoop || [];
