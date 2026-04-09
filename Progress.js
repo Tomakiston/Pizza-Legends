@@ -1,6 +1,6 @@
 class Progress {
     constructor() {
-        this.mapId = "DemoRoom";
+        this.mapId = "Kitchen";
 
         this.startingHeroX = 0;
         this.startingHeroY = 0;
@@ -25,6 +25,10 @@ class Progress {
     }
 
     getSaveFile() {
+        if(!window.localStorage) {
+            return null;
+        }
+
         const file = window.localStorage.getItem(this.saveFileKey);
 
         return file ? JSON.parse(file) : null;
