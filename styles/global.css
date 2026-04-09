@@ -1,4 +1,3 @@
-/*etapa 15 ok*/
 :root {
     --border-color:#291D4D;
     --dialog-background:#FFF3B4;
@@ -15,6 +14,7 @@ body {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    /*font-family: "Ribeye", cursive;*/
 }
 .game-container {
     position: relative;
