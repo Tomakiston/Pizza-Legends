@@ -387,22 +387,260 @@ window.OverworldMaps = {
                         ]
                     }
                 ]
+            },
+            streetNpcB: {
+                type: "Person",
+                x: utils.withGrid(31),
+                y: utils.withGrid(12),
+                src: "images/characters/people/npc7.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "up", time: 400},
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "stand", direction: "down", time: 400},
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "stand", direction: "right", time: 800}
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Não consigo decidir qual são meus ingredientes favoritos.", faceHero: "streetNpcB"}
+                        ]
+                    }
+                ]
+            },
+            streetNpcC: {
+                type: "Person",
+                x: utils.withGrid(22),
+                y: utils.withGrid(10),
+                src: "images/characters/people/npc8.png",
+                talking: [
+                    {
+                        required: ["streetBattle"],
+                        events: [
+                            {type: "textMessage", text: "Você é bastante capaz.", faceHero: "streetNpcC"}
+                        ]
+                    },
+                    {
+                        events: [
+                            {type: "textMessage", text: "Você devia ter ficado em casa!", faceHero: "streetNpcC"},
+                            {type: "battle", enemyId: "streetBattle"},
+                            {type: "addStoryFlag", flag: "streetBattle"}
+                        ]
+                    }
+                ]
             }
         },
+        walls: function() {
+            let walls = {};
+            ["4,9", "5,8", "6,9", "7,9", "8,9", "9,9", "10,9", "11,9", "12,9", "13,8", "14,8", "15,7",
+                "16,7", "17,7", "18,7", "19,7", "20,7", "21,7", "22,7", "23,7", "24,7", "24,6", "24,5", "26,5", "26,6", "26,7", "27,7", "28,8", "28,9", "29,8", "30,9", "31,9", "32,9", "33,9",
+                "16,9", "17,9", "25,9", "26,9", "16,10", "17,10", "25,10", "26,10", "16,11", "17,11", "25,11", "26,11",
+                "18,11","19,11",
+                "4,14", "5,14", "6,14", "7,14", "8,14", "9,14", "10,14", "11,14", "12,14", "13,14", "14,14", "15,14", "16,14", "17,14", "18,14", "19,14", "20,14", "21,14", "22,14", "23,14",
+                "24,14", "25,14", "26,14", "27,14", "28,14", "29,14", "30,14", "31,14", "32,14", "33,14",
+                "3,10", "3,11", "3,12", "3,13", "34,10", "34,11", "34,12", "34,13",
+                "29,8","25,4",
+            ].forEach(coord => {
+                let [x,y] = coord.split(",");
+                walls[utils.asGridCoord(x,y)] = true;
+            })
+            return walls;
+        }(),
         cutsceneSpaces: {
+            [utils.asGridCoord(5,9)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "DiningRoom",
+                            x: utils.withGrid(6),
+                            y: utils.withGrid(12),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ],
             [utils.asGridCoord(29,9)]: [
                 {
                     events: [
                         {
                             type: "changeMap",
-                            map: "Kitchen",
+                            map: "Shop",
                             x: utils.withGrid(5),
-                            y: utils.withGrid(10),
+                            y: utils.withGrid(12),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(25,5)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "StreetNorth",
+                            x: utils.withGrid(7),
+                            y: utils.withGrid(16),
                             direction: "up"
                         }
                     ]
                 }
             ]
+        }
+    },
+    Shop: {
+        id: "Shop",
+        lowerSrc: "images/maps/PizzaShopLower.png",
+        upperSrc: "images/maps/PizzaShopUpper.png",
+        configObjects: {
+            hero: {
+                type: "Person",
+                isPlayerControlled: true,
+                x: utils.withGrid(3),
+                y: utils.withGrid(7)
+            },
+            shopNpcA: {
+                type: "Person",
+                x: utils.withGrid(6),
+                y: utils.withGrid(5),
+                src: "images/characters/people/erio.png",
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Todas as rivalidades entre chefes tem sido boas para os negocios.", faceHero: "shopNpcA"}
+                        ]
+                    }
+                ]
+            },
+            shopNpcB: {
+                type: "Person",
+                x: utils.withGrid(5),
+                y: utils.withGrid(9),
+                src: "images/characters/people/npc2.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "left", time: 400},
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Qual pá de pizza me tornará um chef melhor?", faceHero: "shopNpcB"}
+                        ]
+                    }
+                ]
+            },
+            pizzaStone: {
+                type: "PizzaStone",
+                x: utils.withGrid(1),
+                y: utils.withGrid(4),
+                storyFlag: "STONE_SHOP",
+                pizzas: ["v002", "f002"]
+            },
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5,12)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Street",
+                            x: utils.withGrid(29),
+                            y: utils.withGrid(9),
+                            direction: "down"
+                        }
+                    ]
+                }
+            ],
+        },
+        walls: {
+            [utils.asGridCoord(2,4)]: true,
+            [utils.asGridCoord(2,5)]: true,
+            [utils.asGridCoord(2,6)]: true,
+            [utils.asGridCoord(3,6)]: true,
+            [utils.asGridCoord(4,6)]: true,
+            [utils.asGridCoord(5,6)]: true,
+            [utils.asGridCoord(7,6)]: true,
+            [utils.asGridCoord(8,6)]: true,
+            [utils.asGridCoord(9,6)]: true,
+            [utils.asGridCoord(9,5)]: true,
+            [utils.asGridCoord(9,4)]: true,
+            [utils.asGridCoord(3,8)]: true,
+            [utils.asGridCoord(3,9)]: true,
+            [utils.asGridCoord(3,10)]: true,
+            [utils.asGridCoord(4,8)]: true,
+            [utils.asGridCoord(4,9)]: true,
+            [utils.asGridCoord(4,10)]: true,
+            [utils.asGridCoord(7,8)]: true,
+            [utils.asGridCoord(7,9)]: true,
+            [utils.asGridCoord(8,8)]: true,
+            [utils.asGridCoord(8,9)]: true,
+            [utils.asGridCoord(1,12)]: true,
+            [utils.asGridCoord(2,12)]: true,
+            [utils.asGridCoord(3,12)]: true,
+            [utils.asGridCoord(4,12)]: true,
+            [utils.asGridCoord(6,12)]: true,
+            [utils.asGridCoord(7,12)]: true,
+            [utils.asGridCoord(8,12)]: true,
+            [utils.asGridCoord(9,12)]: true,
+            [utils.asGridCoord(10,12)]: true,
+            [utils.asGridCoord(0,4)]: true,
+            [utils.asGridCoord(0,5)]: true,
+            [utils.asGridCoord(0,6)]: true,
+            [utils.asGridCoord(0,7)]: true,
+            [utils.asGridCoord(0,8)]: true,
+            [utils.asGridCoord(0,9)]: true,
+            [utils.asGridCoord(0,10)]: true,
+            [utils.asGridCoord(0,11)]: true,
+            [utils.asGridCoord(11,4)]: true,
+            [utils.asGridCoord(11,5)]: true,
+            [utils.asGridCoord(11,6)]: true,
+            [utils.asGridCoord(11,7)]: true,
+            [utils.asGridCoord(11,8)]: true,
+            [utils.asGridCoord(11,9)]: true,
+            [utils.asGridCoord(11,10)]: true,
+            [utils.asGridCoord(11,11)]: true,
+            [utils.asGridCoord(1,3)]: true,
+            [utils.asGridCoord(2,3)]: true,
+            [utils.asGridCoord(3,3)]: true,
+            [utils.asGridCoord(4,3)]: true,
+            [utils.asGridCoord(5,3)]: true,
+            [utils.asGridCoord(6,3)]: true,
+            [utils.asGridCoord(7,3)]: true,
+            [utils.asGridCoord(8,3)]: true,
+            [utils.asGridCoord(9,3)]: true,
+            [utils.asGridCoord(10,3)]: true,
+            [utils.asGridCoord(5,13)]: true
+        }
+    },
+    GreenKitchen: {
+        id: "GreenKitchen",
+        lowerSrc: "images/maps/GreenKitchenLower.png",
+        upperSrc: "images/maps/GreenKitchenUpper.png",
+        configObjects: {
+            hero: {
+                type: "Person",
+                isPlayerControlled: true,
+                x: utils.withGrid(3),
+                y: utils.withGrid(8)
+            },
+            greenKitchenNpcA: {
+                type: "Person",
+                x: utils.withGrid(8),
+                y: utils.withGrid(8),
+                src: "images/characters/people/npc2.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "up", time: 400},
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "stand", direction: "down", time: 400},
+                    {type: "stand", direction: "left", time: 800}
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "O Chefe Root usa os melhores temperos", faceHero: "greenKitchenNpcA"}
+                        ]
+                    }
+                ]
+            }
         }
     }
 }
