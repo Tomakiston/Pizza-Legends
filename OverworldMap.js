@@ -636,11 +636,346 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text: "O Chefe Root usa os melhores temperos", faceHero: "greenKitchenNpcA"}
+                            {type: "textMessage", text: "O Chef Rootie usa os melhores temperos", faceHero: "greenKitchenNpcA"}
                         ]
                     }
                 ]
+            },
+            greenKitchenNpcB: {
+                type: "Person",
+                x: utils.withGrid(1),
+                y: utils.withGrid(8),
+                src: "images/characters/people/npc3.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "up", time: 900},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "down"},
+                    {type: "stand", direction: "right", time: 800},
+                    {type: "stand", direction: "down", time: 400},
+                    {type: "stand", direction: "right", time: 800},
+                    {type: "walk", direction: "up"},
+                    {type: "walk", direction: "up"},
+                    {type: "stand", direction: "up", time: 600},
+                    {type: "stand", direction: "right", time: 900}
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Finalmente... Uma pizzaria que me entende!", faceHero: "greenKitchenNpcB"}
+                        ]
+                    }
+                ]
+            },
+            greenKitchenNpcC: {
+                type: "Person",
+                x: utils.withGrid(3),
+                y: utils.withGrid(5),
+                src: "images/characters/people/secondBoss.png",
+                talking: [
+                    {
+                        required: ["chefRootie"],
+                        events: [
+                            {type: "textMessage", faceHero: "greenKitchenNpcC", text: "Meus vegetais precisam crescer mais"}
+                        ]
+                    },
+                    {
+                        events: [
+                            {type: "textMessage", text: "Os vegetais são combustível do coração e da alma!", faceHero: "greenKitchenNpcC"},
+                            {type: "battle", enemyId: "chefRootie", arena: "green-kitchen"},
+                            {type: "addStoryFlag", flag: "chefRootie"}
+                        ]
+                    }
+                ]
+            },
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5,12)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "StreetNorth",
+                            x: utils.withGrid(7),
+                            y: utils.withGrid(5),
+                            direction: "down"
+                        }
+                    ]
+                }
+            ],
+        },
+        walls: {
+            [utils.asGridCoord(1,4)]: true,
+            [utils.asGridCoord(3,4)]: true,
+            [utils.asGridCoord(4,4)]: true,
+            [utils.asGridCoord(6,4)]: true,
+            [utils.asGridCoord(7,4)]: true,
+            [utils.asGridCoord(8,5)]: true,
+            [utils.asGridCoord(9,4)]: true,
+            [utils.asGridCoord(1,6)]: true,
+            [utils.asGridCoord(2,6)]: true,
+            [utils.asGridCoord(3,6)]: true,
+            [utils.asGridCoord(4,6)]: true,
+            [utils.asGridCoord(5,6)]: true,
+            [utils.asGridCoord(6,6)]: true,
+            [utils.asGridCoord(3,7)]: true,
+            [utils.asGridCoord(4,7)]: true,
+            [utils.asGridCoord(6,7)]: true,
+            [utils.asGridCoord(2,9)]: true,
+            [utils.asGridCoord(3,9)]: true,
+            [utils.asGridCoord(4,9)]: true,
+            [utils.asGridCoord(7,10)]: true,
+            [utils.asGridCoord(8,10)]: true,
+            [utils.asGridCoord(9,10)]: true,
+            [utils.asGridCoord(1,12)]: true,
+            [utils.asGridCoord(2,12)]: true,
+            [utils.asGridCoord(3,12)]: true,
+            [utils.asGridCoord(4,12)]: true,
+            [utils.asGridCoord(6,12)]: true,
+            [utils.asGridCoord(7,12)]: true,
+            [utils.asGridCoord(8,12)]: true,
+            [utils.asGridCoord(9,12)]: true,
+            [utils.asGridCoord(0,5)]: true,
+            [utils.asGridCoord(0,6)]: true,
+            [utils.asGridCoord(0,7)]: true,
+            [utils.asGridCoord(0,8)]: true,
+            [utils.asGridCoord(0,9)]: true,
+            [utils.asGridCoord(0,10)]: true,
+            [utils.asGridCoord(0,11)]: true,
+            [utils.asGridCoord(10,5)]: true,
+            [utils.asGridCoord(10,6)]: true,
+            [utils.asGridCoord(10,7)]: true,
+            [utils.asGridCoord(10,8)]: true,
+            [utils.asGridCoord(10,9)]: true,
+            [utils.asGridCoord(10,10)]: true,
+            [utils.asGridCoord(10,11)]: true,
+            [utils.asGridCoord(5,13)]: true
+        }
+    },
+    StreetNorth: {
+        id: "StreetNorth",
+        lowerSrc: "images/maps/StreetNorthLower.png",
+        upperSrc: "images/maps/StreetNorthUpper.png",
+        configObjects: {
+             hero: {
+                type: "Person",
+                isPlayerControlled: true,
+                x: utils.withGrid(3),
+                y: utils.withGrid(8)
+            },
+            streetNorthNpcA: {
+                type: "Person",
+                x: utils.withGrid(9),
+                y: utils.withGrid(6),
+                src: "images/characters/people/npc1.png",
+                behaviorLoop: [
+                    {type: "walk", direction: "left"},
+                    {type: "walk", direction: "down"},
+                    {type: "walk", direction: "right"},
+                    {type: "stand", direction: "right", time: 800},
+                    {type: "walk", direction: "up"},
+                    {type: "stand", direction: "up", time: 400}
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Esse lugar é famoso por suas pizza vegetariana", faceHero: "streetNorthNpcA"}
+                        ]
+                    }
+                ]
+            },
+            streetNorthNpcB: {
+                type: "Person",
+                x: utils.withGrid(4),
+                y: utils.withGrid(12),
+                src: "images/characters/people/npc3.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "up", time: 400},
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "stand", direction: "down", time: 400},
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "stand", direction: "right", time: 800}
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Adoro o cheiro fresco de alho no ar", faceHero: "streetNorthNpcB"}
+                        ]
+                    }
+                ]
+            },
+            streetNorthNpcC: {
+                type: "Person",
+                x: utils.withGrid(12),
+                y: utils.withGrid(9),
+                src: "images/characters/people/npc8.png",
+                talking: [
+                    {
+                        required: ["streetNorthBattle"],
+                        events: [
+                            {type: "textMessage", text: "Poderia ser você O Lendário?", faceHero: "streetNorthNpcC"}
+                        ]
+                    },
+                    {
+                        events: [
+                            {type: "textMessage", text: "Esse é o meu território!", faceHero: "streetNorthNpcC"},
+                            {type: "battle", enemyId: "streetNorthBattle"},
+                            {type: "addStoryFlag", flag: "streetNorthBattle"}
+                        ]
+                    }
+                ]
+            },
+            pizzaStone: {
+                type: "PizzaStone",
+                x: utils.withGrid(2),
+                y: utils.withGrid(9),
+                storyFlag: "STONE_STREET_NORTH",
+                pizzas: ["v001", "f001"]
             }
+        },
+        walls: {
+            [utils.asGridCoord(2,7)]: true,
+            [utils.asGridCoord(3,7)]: true,
+            [utils.asGridCoord(3,6)]: true,
+            [utils.asGridCoord(4,5)]: true,
+            [utils.asGridCoord(5,5)]: true,
+            [utils.asGridCoord(6,5)]: true,
+            [utils.asGridCoord(8,5)]: true,
+            [utils.asGridCoord(9,5)]: true,
+            [utils.asGridCoord(10,5)]: true,
+            [utils.asGridCoord(11,6)]: true,
+            [utils.asGridCoord(12,6)]: true,
+            [utils.asGridCoord(13,6)]: true,
+            [utils.asGridCoord(7,8)]: true,
+            [utils.asGridCoord(8,8)]: true,
+            [utils.asGridCoord(7,9)]: true,
+            [utils.asGridCoord(8,9)]: true,
+            [utils.asGridCoord(7,10)]: true,
+            [utils.asGridCoord(8,10)]: true,
+            [utils.asGridCoord(9,10)]: true,
+            [utils.asGridCoord(10,10)]: true,
+            [utils.asGridCoord(2,15)]: true,
+            [utils.asGridCoord(3,15)]: true,
+            [utils.asGridCoord(4,15)]: true,
+            [utils.asGridCoord(5,15)]: true,
+            [utils.asGridCoord(6,15)]: true,
+            [utils.asGridCoord(6,16)]: true,
+            [utils.asGridCoord(8,16)]: true,
+            [utils.asGridCoord(8,15)]: true,
+            [utils.asGridCoord(9,15)]: true,
+            [utils.asGridCoord(10,15)]: true,
+            [utils.asGridCoord(11,15)]: true,
+            [utils.asGridCoord(12,15)]: true,
+            [utils.asGridCoord(13,15)]: true,
+            [utils.asGridCoord(1,8)]: true,
+            [utils.asGridCoord(1,9)]: true,
+            [utils.asGridCoord(1,10)]: true,
+            [utils.asGridCoord(1,11)]: true,
+            [utils.asGridCoord(1,12)]: true,
+            [utils.asGridCoord(1,13)]: true,
+            [utils.asGridCoord(1,14)]: true,
+            [utils.asGridCoord(14,7)]: true,
+            [utils.asGridCoord(14,8)]: true,
+            [utils.asGridCoord(14,9)]: true,
+            [utils.asGridCoord(14,10)]: true,
+            [utils.asGridCoord(14,11)]: true,
+            [utils.asGridCoord(14,12)]: true,
+            [utils.asGridCoord(14,13)]: true,
+            [utils.asGridCoord(14,14)]: true,
+            [utils.asGridCoord(7,17)]: true,
+            [utils.asGridCoord(7,4)]: true
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(7,5)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "GreenKitchen",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(12),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(7,16)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Street",
+                            x: utils.withGrid(25),
+                            y: utils.withGrid(5),
+                            direction: "down"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    DiningRoom: {
+        id: "DiningRoom",
+        lowerSrc: "images/maps/DiningRoomLower.png",
+        upperSrc: "images/maps/DiningRoomUpper.png",
+        configObjects: {
+            hero: {
+                type: "Person",
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(8)
+            },
+            diningRoomNpcA: {
+                type: "Person",
+                x: utils.withGrid(12),
+                y: utils.withGrid(8),
+                src: "images/characters/people/npc8.png",
+                talking: [
+                    {
+                        required: ["diningRoomBattle"],
+                        events: [
+                            {type: "textMessage", text: "Talvez eu não esteja pronto para esse lugar", faceHero: "diningRoomNpcA"}
+                        ]
+                    },
+                    {
+                        events: [
+                            {type: "textMessage", text: "Você acha que tem oque é preciso para cozinhar aqui?!", faceHero: "diningRoomNpcA"},
+                            {type: "battle", enemyId: "diningRoomBattle", arena: "dining-room"},
+                            {type: "addStoryFlag", flag: "diningRoomBattle"}
+                        ]
+                    }
+                ]
+            },
+            diningRoomNpcB: {
+                type: "Person",
+                x: utils.withGrid(9),
+                y: utils.withGrid(5),
+                src: "images/characters/people/npc4.png",
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Pessoas vem de todos os lugares para jantar aqui", faceHero: "diningRoomNpcB"}
+                        ]
+                    }
+                ]
+            },
+            diningRoomNpcC: {
+                type: "Person",
+                x: utils.withGrid(2),
+                y: utils.withGrid(8),
+                src: "images/characters/people/npc7.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "right", time: 800},
+                    {type: "stand", direction: "down", time: 700},
+                    {type: "stand", direction: "right", time: 800}
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Tive muita sorte de conseguir uma reserva!", faceHero: "diningRoomNpcC"}
+                        ]
+                    }
+                ]
+            },
         }
     }
 }
