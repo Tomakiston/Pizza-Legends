@@ -1,7 +1,7 @@
 class OverworldMap {
     constructor(config) {
         this.overworld = null;
-        this.gameObjects = config.gameObjects;
+        this.gameObjects = {};
 
         this.cutsceneSpaces = config.cutsceneSpaces || {};
 
@@ -36,14 +36,38 @@ class OverworldMap {
 
     isSpaceTaken(currentX, currentY, direction) {
         const {x,y} = utils.nextPosition(currentX, currentY, direction);
-        return this.walls[`${x},${y}`] || false;
+        if(this.walls[`${x},${y}`]) {
+            return true;
+        }
+
+        return Object.values(this.gameObjects).find(obj => {
+            if(obj.x === x && obj.y === y) {
+                return true;
+            }
+            if(obj.intentPosition && obj.intentPosition[0] === x && obj.intentPosition[1] === y) {
+                return true;
+            }
+            return false;
+        })
     }
 
     mountObjects() {
-        Object.keys(this.gameObjects).forEach(key => {
-            let object = this.gameObjects[key];
+        Object.keys(this.configObjects).forEach(key => {
+            let object = this.configObjects[key];
             object.id = key;
-            object.mount(this);
+
+            let instance;
+            if(object.type === "Person") {
+                instance = new Person(object);
+            }
+            if(object.type === "PizzaStone") {
+                instance = new PizzaStone(object);
+            }
+
+            this.gameObjects[key] = instance;
+            this.gameObjects[key].id = key;
+
+            instance.mount(this);
         })
     }
 
@@ -63,7 +87,7 @@ class OverworldMap {
         }
 
         this.isCutscenePlaying = false;
-        Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this));
+        //Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this));
     }
 
     checkForActionCutscene() {
@@ -96,7 +120,7 @@ class OverworldMap {
         }
     }
 
-    addWall(x,y) {
+    /*addWall(x,y) {
         this.walls[`${x},${y}`] = true;
     }
 
@@ -109,7 +133,7 @@ class OverworldMap {
         
         const {x,y} = utils.nextPosition(wasX, wasY, direction);
         this.addWall(x,y); 
-    }
+    }*/
 }
 
 window.OverworldMaps = {
