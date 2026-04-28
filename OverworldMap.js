@@ -976,6 +976,112 @@ window.OverworldMaps = {
                     }
                 ]
             },
+            diningRoomNpcD: {
+                type: "Person",
+                x: utils.withGrid(8),
+                y: utils.withGrid(9),
+                src: "images/characters/people/npc1.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "right", time: 1200},
+                    {type: "stand", direction: "down", time: 900},
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "stand", direction: "down", time: 700},
+                    {type: "stand", direction: "right", time: 400},
+                    {type: "stand", direction: "up", time: 800}
+                ],
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Estou sonhando com essa pizza a semanas!", faceHero: "diningRoomNpcD"}
+                        ]
+                    }
+                ]
+            }
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(7,3)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Kitchen",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(10),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(6,12)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Street",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(9),
+                            direction: "down"
+                        }
+                    ]
+                }
+            ]
+        },
+        walls: {
+            [utils.asGridCoord(6,3)]: true,
+            [utils.asGridCoord(7,2)]: true,
+            [utils.asGridCoord(6,13)]: true,
+            [utils.asGridCoord(1,5)]: true,
+            [utils.asGridCoord(2,5)]: true,
+            [utils.asGridCoord(3,5)]: true,
+            [utils.asGridCoord(4,5)]: true,
+            [utils.asGridCoord(4,4)]: true,
+            [utils.asGridCoord(5,3)]: true,
+            [utils.asGridCoord(6,4)]: true,
+            [utils.asGridCoord(6,5)]: true,
+            [utils.asGridCoord(8,3)]: true,
+            [utils.asGridCoord(9,4)]: true,
+            [utils.asGridCoord(10,5)]: true,
+            [utils.asGridCoord(11,5)]: true,
+            [utils.asGridCoord(12,5)]: true,
+            [utils.asGridCoord(11,7)]: true,
+            [utils.asGridCoord(12,7)]: true,
+            [utils.asGridCoord(2,7)]: true,
+            [utils.asGridCoord(3,7)]: true,
+            [utils.asGridCoord(4,7)]: true,
+            [utils.asGridCoord(7,7)]: true,
+            [utils.asGridCoord(8,7)]: true,
+            [utils.asGridCoord(9,7)]: true,
+            [utils.asGridCoord(2,10)]: true,
+            [utils.asGridCoord(3,10)]: true,
+            [utils.asGridCoord(4,10)]: true,
+            [utils.asGridCoord(7,10)]: true,
+            [utils.asGridCoord(8,10)]: true,
+            [utils.asGridCoord(9,10)]: true,
+            [utils.asGridCoord(1,12)]: true,
+            [utils.asGridCoord(2,12)]: true,
+            [utils.asGridCoord(3,12)]: true,
+            [utils.asGridCoord(4,12)]: true,
+            [utils.asGridCoord(5,12)]: true,
+            [utils.asGridCoord(7,12)]: true,
+            [utils.asGridCoord(8,12)]: true,
+            [utils.asGridCoord(9,12)]: true,
+            [utils.asGridCoord(10,12)]: true,
+            [utils.asGridCoord(11,12)]: true,
+            [utils.asGridCoord(12,12)]: true,
+            [utils.asGridCoord(0,4)]: true,
+            [utils.asGridCoord(0,5)]: true,
+            [utils.asGridCoord(0,6)]: true,
+            [utils.asGridCoord(0,8)]: true,
+            [utils.asGridCoord(0,9)]: true,
+            [utils.asGridCoord(0,10)]: true,
+            [utils.asGridCoord(0,11)]: true,
+            [utils.asGridCoord(13,4)]: true,
+            [utils.asGridCoord(13,5)]: true,
+            [utils.asGridCoord(13,6)]: true,
+            [utils.asGridCoord(13,8)]: true,
+            [utils.asGridCoord(13,9)]: true,
+            [utils.asGridCoord(13,10)]: true,
+            [utils.asGridCoord(13,11)]: true
         }
     }
 }
