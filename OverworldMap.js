@@ -2,6 +2,7 @@ class OverworldMap {
     constructor(config) {
         this.overworld = null;
         this.gameObjects = {};
+        this.configObjects = config.configObjects;
 
         this.cutsceneSpaces = config.cutsceneSpaces || {};
 
