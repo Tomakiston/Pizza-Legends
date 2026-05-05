@@ -1,8 +1,8 @@
 class OverworldMap {
     constructor(config) {
         this.overworld = null;
-        this.gameObjects = {};
         this.configObjects = config.configObjects;
+        this.gameObjects = {};
 
         this.cutsceneSpaces = config.cutsceneSpaces || {};
 
@@ -54,21 +54,21 @@ class OverworldMap {
 
     mountObjects() {
         Object.keys(this.configObjects).forEach(key => {
-            let object = this.configObjects[key];
-            object.id = key;
+            let config = this.configObjects[key];
+            config.id = key;
 
-            let instance;
-            if(object.type === "Person") {
-                instance = new Person(object);
+            let obj;
+            if(config.type === "Person") {
+                obj = new Person(config);
             }
-            if(object.type === "PizzaStone") {
-                instance = new PizzaStone(object);
+            if(config.type === "PizzaStone") {
+                obj = new PizzaStone(config);
             }
 
-            this.gameObjects[key] = instance;
+            this.gameObjects[key] = obj;
             this.gameObjects[key].id = key;
 
-            instance.mount(this);
+            obj.mount(this);
         })
     }
 
@@ -139,9 +139,10 @@ class OverworldMap {
 
 window.OverworldMaps = {
     DemoRoom: {
+        id: "DemoRoom",
         lowerSrc: "images/maps/DemoLower.png",
         upperSrc: "images/maps/DemoUpper.png",
-        gameObjects: {
+        configObjects: {
             hero: {
                 type: "Person",
                 isPlayerControlled: true,
@@ -154,10 +155,11 @@ window.OverworldMaps = {
                 y: utils.withGrid(9),
                 src: "images/characters/people/npc1.png",
                 behaviorLoop: [
-                    {type: "stand", direction: "left", time: 800 },
-                    {type: "stand", direction: "up", time: 800 },
-                    {type: "stand", direction: "right", time: 1200 },
-                    {type: "stand", direction: "up", time: 300 }
+                    {type: "walk", direction: "left" },
+                    {type: "walk", direction: "down" },
+                    {type: "walk", direction: "right" },
+                    {type: "walk", direction: "up" },
+                    {type: "stand", direction: "up", time: 400 }
                 ],
                 talking: [
                     {
@@ -171,8 +173,8 @@ window.OverworldMaps = {
                             {type: "textMessage", text: "Vou te esmagar!", faceHero: "npcA" },
                             {type: "battle", enemyId: "beth"},
                             {type: "addStoryFlag", flag: "DEFEATED_BETH"},
-                            {type: "textMessage", text: "Você me esmagou como pimenta fraca.", faceHero: "npcA"}
-                            //{ type: "textMessage", text: "Vai embora!" },
+                            {type: "textMessage", text: "Você me esmagou como pimenta fraca.", faceHero: "npcA"},
+                            {type: "textMessage", text: "Vai embora!"}
                             //{ who: "hero", type: "walk", direction: "up" },
                         ]
                     }
@@ -258,6 +260,7 @@ window.OverworldMaps = {
             ]
         }
     },
+    //paramos aqui
     Kitchen: {
         id: "Kitchen",
         lowerSrc: "images/maps/KitchenLower.png",
