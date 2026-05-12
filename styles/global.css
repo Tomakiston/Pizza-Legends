@@ -4,7 +4,7 @@
     --menu-background:#FFE8D2;
     --menu-border-color:#A48465;
     --menu-font-color:#3A160D;
-    --menu-selected-background:#7FC2FF;
+    --menu-selected-background:#7fc2ff;
 }
 * {
     box-sizing: border-box;
@@ -14,7 +14,7 @@ body {
     padding: 0;
     margin: 0;
     overflow: hidden;
-    font-family: "Ribeye", cursive;
+    font-family: 'Ribeye', cursive;
 }
 .how-to-play {
   position: absolute;
@@ -26,6 +26,7 @@ body {
 }
 .game-container {
     position: relative;
+    background: #9ae2ff;
     width: 352px;
     height: 198px;
     margin: 0 auto;

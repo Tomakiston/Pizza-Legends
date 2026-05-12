@@ -1,11 +1,12 @@
 .Combatant {
     width: 67px;
     height: 14px;
-    background: url("../images/ui/plate-combatant.png") no-repeat no-repeat;
+    background: url("../images/ui/combatant-plate.png") no-repeat no-repeat;
     position: absolute;
 }
 .Battle .Combatant {
     transform: scale(2);
+    transition: opacity 0.4s;
 }
 .Battle .Combatant[data-active="false"] {
     opacity: 0;
@@ -95,7 +96,7 @@
     bottom: -3px;
     padding-left: 2px;
     padding-right: 2px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0,0,0,0.8);
     color: white;
     margin: 0;
 }
@@ -109,7 +110,7 @@
     position: absolute;
     transform: scale(2);
     transition: opacity 0.4s, transform 0.4s;
-    background: url("../images/characters/pizzas/pizza-shadow.png") no-repeat no-repeat;
+    background: url(../images/characters/pizzas/pizza-shadow.png) no-repeat no-repeat;
 }
 .Pizza[data-team="player"] {
     bottom: 73px;
