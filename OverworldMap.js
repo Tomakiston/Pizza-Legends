@@ -260,7 +260,6 @@ window.OverworldMaps = {
             ]
         }
     },
-    //paramos aqui
     Kitchen: {
         id: "Kitchen",
         lowerSrc: "images/maps/KitchenLower.png",
@@ -320,7 +319,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "DiningRoom",
                             x: utils.withGrid(7),
-                            y: utils.withGrid(3),
+                            y: utils.withGrid(4),
                             direction: "down"
                         }
                     ]
@@ -482,7 +481,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "DiningRoom",
                             x: utils.withGrid(6),
-                            y: utils.withGrid(12),
+                            y: utils.withGrid(11),
                             direction: "up"
                         }
                     ]
@@ -495,7 +494,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "Shop",
                             x: utils.withGrid(5),
-                            y: utils.withGrid(12),
+                            y: utils.withGrid(11),
                             direction: "up"
                         }
                     ]
@@ -508,7 +507,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "StreetNorth",
                             x: utils.withGrid(7),
-                            y: utils.withGrid(16),
+                            y: utils.withGrid(15),
                             direction: "up"
                         }
                     ]
@@ -572,7 +571,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "Street",
                             x: utils.withGrid(29),
-                            y: utils.withGrid(9),
+                            y: utils.withGrid(10),
                             direction: "down"
                         }
                     ]
@@ -724,7 +723,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "StreetNorth",
                             x: utils.withGrid(7),
-                            y: utils.withGrid(5),
+                            y: utils.withGrid(6),
                             direction: "down"
                         }
                     ]
@@ -920,7 +919,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "GreenKitchen",
                             x: utils.withGrid(5),
-                            y: utils.withGrid(12),
+                            y: utils.withGrid(11),
                             direction: "up"
                         }
                     ]
@@ -933,7 +932,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "Street",
                             x: utils.withGrid(25),
-                            y: utils.withGrid(5),
+                            y: utils.withGrid(6),
                             direction: "down"
                         }
                     ]
@@ -1034,7 +1033,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "Kitchen",
                             x: utils.withGrid(5),
-                            y: utils.withGrid(10),
+                            y: utils.withGrid(9),
                             direction: "up"
                         }
                     ]
@@ -1047,7 +1046,7 @@ window.OverworldMaps = {
                             type: "changeMap",
                             map: "Street",
                             x: utils.withGrid(5),
-                            y: utils.withGrid(9),
+                            y: utils.withGrid(10),
                             direction: "down"
                         }
                     ]
