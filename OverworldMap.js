@@ -151,8 +151,8 @@ window.OverworldMaps = {
             },
             npcA: {
                 type: "Person",
-                x: utils.withGrid(7),
-                y: utils.withGrid(9),
+                x: utils.withGrid(10),
+                y: utils.withGrid(8),
                 src: "images/characters/people/npc1.png",
                 behaviorLoop: [
                     {type: "walk", direction: "left" },
@@ -265,12 +265,12 @@ window.OverworldMaps = {
         id: "Kitchen",
         lowerSrc: "images/maps/KitchenLower.png",
         upperSrc: "images/maps/KitchenUpper.png",
-        gameObjects: {
+        configObjects: {
             hero: {
                 type: "Person",
                 isPlayerControlled: true,
-                x: utils.withGrid(10),
-                y: utils.withGrid(5)
+                x: utils.withGrid(3),
+                y: utils.withGrid(9)
             },
             kitchenNpcA: {
                 type: "Person",
@@ -392,7 +392,7 @@ window.OverworldMaps = {
         id: "Street",
         lowerSrc: "images/maps/StreetLower.png",
         upperSrc: "images/maps/StreetUpper.png",
-        gameObjects: {
+        configObjects: {
             hero: {
                 type: "Person",
                 isPlayerControlled: true,

@@ -30,6 +30,12 @@
     top: 42px;
     right: -1px;
 }
+.Battle.green-kitchen {
+  background-image: url(/images/maps/GreenKitchenBattle.png);
+}
+.Battle.dining-room {
+  background-image: url(/images/maps/DiningRoomBattle.png);
+}
 
 /*Animações*/
 @keyframes battle-damage-blink {

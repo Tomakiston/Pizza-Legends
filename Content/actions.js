@@ -1,7 +1,7 @@
 //etapa 15 ok
 window.Actions = {
     damage1: {
-        name: "Whomp!",
+        name: "Bater!",
         description: "Soco macio de massa",
         success: [
             { type:"textMessage", text:"{CASTER} usou {ACTION}!" },

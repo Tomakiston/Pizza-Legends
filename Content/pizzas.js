@@ -31,6 +31,14 @@ window.Pizzas = {
         icon: "images/icons/veggie.png",
         actions: ["damage1"]
     },
+    "v002": {
+        name: "Archie Artichoke",
+        description: "Pizza desc here",
+        type: PizzaTypes.veggie,
+        src: "images/characters/pizzas/v002.png",
+        icon: "images/icons/veggie.png",
+        actions: ["damage1"],
+        },
     "f001": {
         name: "Portobello Express",
         description: "Não é a ultima de nós",
@@ -39,4 +47,12 @@ window.Pizzas = {
         icon: "images/icons/fungi.png",
         actions: ["damage1"]
     },
+     "f002": {
+        name: "Say Shitake",
+        description: "Pizza desc here",
+        type: PizzaTypes.fungi,
+        src: "images/characters/pizzas/f002.png",
+        icon: "images/icons/fungi.png",
+        actions: ["damage1"],
+    }
 } 
