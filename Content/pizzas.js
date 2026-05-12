@@ -33,7 +33,7 @@ window.Pizzas = {
     },
     "v002": {
         name: "Archie Artichoke",
-        description: "Pizza desc here",
+        description: "Estranhamente verde. Estranhamente deliciosa",
         type: PizzaTypes.veggie,
         src: "images/characters/pizzas/v002.png",
         icon: "images/icons/veggie.png",
@@ -49,7 +49,7 @@ window.Pizzas = {
     },
      "f002": {
         name: "Say Shitake",
-        description: "Pizza desc here",
+        description: "Um único pedaço e você vai dizer: shiitake!",
         type: PizzaTypes.fungi,
         src: "images/characters/pizzas/f002.png",
         icon: "images/icons/fungi.png",
