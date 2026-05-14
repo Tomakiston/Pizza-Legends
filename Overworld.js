@@ -114,8 +114,8 @@ class Overworld {
             progress: this.progress
         })
 
-        //const useSaveFile = await this.titleScreen.init(container);
-        const useSaveFile = false;
+        const useSaveFile = await this.titleScreen.init(container);
+        //const useSaveFile = false;
 
         let initialHeroState = null;
         
