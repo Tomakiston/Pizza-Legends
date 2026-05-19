@@ -36,3 +36,15 @@ body {
 .game-container canvas {
     image-rendering: pixelated;
 }
+.screen-transition {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 9999;
+}
+.screen-transition.active {
+    opacity: 1;
+}

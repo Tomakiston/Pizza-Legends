@@ -36,6 +36,16 @@ class PauseMenu {
                     }
                 },
                 {
+                    label: "Sair do jogo",
+                    description: "Voltar para a tela inicial",
+                    handler: () => {
+                        this.close();
+                        this.fadeOut(() => {
+                            window.location.reload();
+                        });
+                    }
+                },
+                {
                     label: "Fechar",
                     description: "Fechar o menu de pause",
                     handler: () => {
@@ -97,6 +107,14 @@ class PauseMenu {
         this.keyboardMenu.end();
         this.element.remove();
         this.onComplete();
+    }
+
+    fadeOut(callback) {
+        const transition = document.querySelector(".screen-transition");
+        transition.classList.add("active");
+        setTimeout(() => {
+            callback();
+        }, 800);
     }
 
     async init(container) {
