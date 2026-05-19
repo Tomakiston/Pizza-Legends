@@ -87,8 +87,16 @@ class OverworldEvent {
     pause(resolve) {
         this.map.isPaused = true;
 
+        const hero = this.map.gameObjects.hero;
+        const heroState = {
+            x: hero.x,
+            y: hero.y,
+            direction: hero.direction
+        };
+
         const menu = new PauseMenu({
             progress: this.map.overworld.progress,
+            heroState: heroState, 
             onComplete: () => {
                 resolve();
 

@@ -24,6 +24,12 @@ class Progress {
         }))
     }
 
+    updateHeroPosition(x, y, direction) {
+        this.startingHeroX = x;
+        this.startingHeroY = y;
+        this.startingHeroDirection = direction;
+    }
+
     getSaveFile() {
         if(!window.localStorage) {
             return null;
