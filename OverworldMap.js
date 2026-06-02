@@ -88,7 +88,6 @@ class OverworldMap {
         }
 
         this.isCutscenePlaying = false;
-        //Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this));
     }
 
     checkForActionCutscene() {
@@ -106,8 +105,6 @@ class OverworldMap {
             })
 
             relevantScenario && this.startCutscene(relevantScenario.events);
-
-            //this.startCutscene(match.talking[0].events);
         }
     }
 
@@ -120,21 +117,6 @@ class OverworldMap {
             this.startCutscene(match[0].events);
         }
     }
-
-    /*addWall(x,y) {
-        this.walls[`${x},${y}`] = true;
-    }
-
-    removeWall(x,y) {
-        delete this.walls[`${x},${y}`];
-    }
-
-    moveWall(wasX, wasY, direction) {
-        this.removeWall(wasX, wasY);
-        
-        const {x,y} = utils.nextPosition(wasX, wasY, direction);
-        this.addWall(x,y); 
-    }*/
 }
 
 window.OverworldMaps = {
@@ -175,7 +157,6 @@ window.OverworldMaps = {
                             {type: "addStoryFlag", flag: "DEFEATED_BETH"},
                             {type: "textMessage", text: "Você me esmagou como pimenta fraca.", faceHero: "npcA"},
                             {type: "textMessage", text: "Vai embora!"}
-                            //{ who: "hero", type: "walk", direction: "up" },
                         ]
                     }
                 ]
@@ -201,19 +182,11 @@ window.OverworldMaps = {
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
                 src: "images/characters/people/erio.png",
-                /*behaviorLoop: [
-                    { type: "walk", direction: "left" },
-                    { type: "stand", direction: "up", time: 800 },
-                    { type: "walk", direction: "up" },
-                    { type: "walk", direction: "right" },
-                    { type: "walk", direction: "down" }
-                ]*/
                talking: [
                 {
                     events: [
                         {type: "textMessage", text: "BAHAHA!", faceHero: "npcB"},
                         {type: "addStoryFlag", flag: "TALKED_TO_ERIO"}
-                        //{type: "battle", enemyId: "erio"}
                     ]
                 }
                ]

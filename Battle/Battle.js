@@ -4,52 +4,11 @@ class Battle {
         this.onComplete = onComplete;
         this.arena = arena;
 
-        this.combatants = {
-            /*"player1": new Combatant({
-                ...Pizzas.s001,
-                team: "player",
-                hp: 30,
-                maxHp: 50,
-                xp: 75,
-                maxXp: 100,
-                level: 1,
-                status: {type:"saucy"},
-                isPlayerControlled: true
-            }, this),
-            "player2": new Combatant({
-                ...Pizzas.s002,
-                team: "player",
-                hp: 30,
-                maxHp: 50,
-                xp: 75,
-                maxXp: 100,
-                level: 1,
-                status: null,
-                isPlayerControlled: true
-            }, this),
-            "enemy1": new Combatant({
-                ...Pizzas.v001,
-                team: "enemy",
-                hp: 1,
-                maxHp: 50,
-                xp: 20,
-                maxXp: 100,
-                level: 1,
-            }, this),
-            "enemy2": new Combatant({
-                ...Pizzas.f001,
-                team: "enemy",
-                hp: 25,
-                maxHp: 50,
-                xp: 30,
-                maxXp: 100,
-                level: 1,
-            }, this)*/
-        }
+        this.combatants = {}
 
         this.activeCombatants = {
-            player: null, //"player1",
-            enemy: null //"enemy1"
+            player: null,
+            enemy: null
         }
 
         window.playerState.lineup.forEach(id => {

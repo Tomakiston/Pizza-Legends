@@ -55,7 +55,6 @@ class SubmissionMenu {
                     label: "Trocar",
                     description: "Troque para uma outra pizza",
                     handler: () => {
-                        //ver opções de pizza
                         this.keyboardMenu.setOptions(this.getPages().replacements);
                     }
                 },
@@ -121,11 +120,6 @@ class SubmissionMenu {
     }
 
     decide() {
-        /*this.onComplete({
-            action: Actions[this.caster.actions[0]],
-            target: this.enemy
-        })*/
-       
        this.menuSubmit(Actions[this.caster.actions[0]]);
     }
     
