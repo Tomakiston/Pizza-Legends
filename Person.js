@@ -46,7 +46,6 @@ class Person extends GameObject {
                 return;
             }
 
-            //state.map.moveWall(this.x, this.y, this.direction);
             this.movingProgressRemaining = 16;
 
             const intentPosition = utils.nextPosition(this.x, this.y, this.direction);

@@ -82,6 +82,18 @@ class OverworldMap {
 
             const result = await eventHandler.init();
             if(result === "LOST_BATTLE") {
+                const defeatScreen = document.createElement("div");
+                defeatScreen.classList.add("DefeatScreen");
+                defeatScreen.textContent = "Suas Pizzas ainda estavam cruas!";
+                document.querySelector(".game-container").appendChild(defeatScreen);
+
+                await new Promise(resolve => setTimeout(resolve, 2500));
+                defeatScreen.remove();
+                playerState.lineup.forEach(id => {
+                    playerState.pizzas[id].hp = playerState.pizzas[id].maxHp;
+                })
+                this.overworld.startMap(window.OverworldMaps.Kitchen);
+
                 break;
             }
 
