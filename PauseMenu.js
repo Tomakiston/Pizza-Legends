@@ -7,21 +7,14 @@ class PauseMenu {
 
     getOptions(pageKey) {
         if(pageKey === "root") {
-            const lineupPizzas = playerState.lineup.map(id => {
-                const {pizzaId} = playerState.pizzas[id];
-                const base = Pizzas[pizzaId];
-
-                return {
-                    label: base.name,
-                    description: base.description,
-                    handler: () => {
-                        this.keyboardMenu.setOptions(this.getOptions(id));
-                    }
-                }
-            })
-
             return [
-                ...lineupPizzas,
+                {
+                    label: "Pizzas",
+                    description: "Veja suas Pizzas",
+                    handler: () => {
+                        this.keyboardMenu.setOptions(this.getOptions("pizzas"));
+                    }
+                },
                 {
                     label: "Salvar",
                     description: "Salve seu progresso",
@@ -50,6 +43,32 @@ class PauseMenu {
                     description: "Fechar o menu de pause",
                     handler: () => {
                         this.close();
+                    }
+                }
+            ]
+        }
+
+        if(pageKey === "pizzas") {
+            const lineupPizzas = playerState.lineup.map(id => {
+                const {pizzaId} = playerState.pizzas[id];
+                const base = Pizzas[pizzaId];
+
+                return {
+                    label: base.name,
+                    description: base.description,
+                    handler: () => {
+                        this.keyboardMenu.setOptions(this.getOptions(id));
+                    }
+                }
+            });
+
+            return [
+                ...lineupPizzas,
+                {
+                    label: "Voltar",
+                    description: "Voltar ao menu principal",
+                    handler: () => {
+                        this.keyboardMenu.setOptions(this.getOptions("root"));
                     }
                 }
             ]
@@ -85,9 +104,9 @@ class PauseMenu {
             },
             {
                 label: "Voltar",
-                description: "Voltar ao menu principal",
+                description: "Voltar ao menu de pizzas",
                 handler: () => {
-                    this.keyboardMenu.setOptions(this.getOptions("root"));
+                    this.keyboardMenu.setOptions(this.getOptions("pizzas"));
                 }
             }
         ]
