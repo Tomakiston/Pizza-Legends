@@ -10,7 +10,7 @@ window.Actions = {
     },
     saucyStatus: {
         name: "Aperto de Tomate",
-        description: "Aplica o status saucy",
+        description: "Cura vida periodicamente",
         targetType: "friendly",
         success: [
             { type:"textMessage", text:"{CASTER} usou {ACTION}!" },
@@ -19,7 +19,7 @@ window.Actions = {
     },
     clumsyStatus: {
         name: "Azeite de Oliva",
-        description: "Uma bagunça escorregadia de delicias",
+        description: "Deixa o inimigo escorregadio",
         success: [
             { type:"textMessage", text:"{CASTER} usou {ACTION}!" },
             { type:"animation", animation:"glob", color:"#dafd2a"},

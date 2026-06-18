@@ -44,9 +44,18 @@ class BattleEvent {
         }
 
         if(status) {
-            who.update({
-                status: {...status}
-            })
+            if (who.status) {
+                console.log(`${who.name} já está com status ${who.status.type}. Não pode ganhar outro.`);
+                await this.battle.turnCycle.onNewEvent({
+                    type: "textMessage",
+                    text: `Falhou! ${who.name} já sendo afetado pelo status ${who.status.type}!`
+                });
+            } else {
+                console.log("Aplicando status", status.type, "em", who.name, who.id);
+                who.update({
+                    status: {...status}
+                });
+            }
         }
 
         if(status === null) {

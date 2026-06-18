@@ -63,9 +63,12 @@ class Combatant {
 
             this.hpFills = this.hudElement.querySelectorAll(".Combatant_life-container > rect");
             this.xpFills = this.hudElement.querySelectorAll(".Combatant_xp-container > rect");
+
+            this.statusElement = this.hudElement.querySelector(".Combatant_status");
     }
 
     update(changes = {}) {
+        console.log(this.name, this.team, changes.status);
         Object.keys(changes).forEach(key => {
             this[key] = changes[key]
         });
@@ -81,12 +84,14 @@ class Combatant {
         const statusElement = this.hudElement.querySelector(".Combatant_status");
         if(this.status) {
             statusElement.innerText = this.status.type;
+            statusElement.dataset.status = this.status.type;
             statusElement.style.display = "block";
+            statusElement.setAttribute("data-status", this.status.type);
         } else {
             statusElement.innerText = "";
+            statusElement.removeAttribute("data-status");
             statusElement.style.display = "none";
         }
-
     }
 
     getReplacedEvents(originalEvents) {
