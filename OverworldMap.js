@@ -64,6 +64,9 @@ class OverworldMap {
             if(config.type === "PizzaStone") {
                 obj = new PizzaStone(config);
             }
+            if(config.type === "InteractionPoint") {
+                obj = new InteractionPoint(config);
+            }
 
             this.gameObjects[key] = obj;
             this.gameObjects[key].id = key;
@@ -295,6 +298,118 @@ window.OverworldMaps = {
                     {type: "stand", direction: "left", time: 500}
                 ]
             },
+            interactionPoint1: {
+                type: "InteractionPoint",
+                x: utils.withGrid(1),
+                y: utils.withGrid(5),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pizza quentinha que acabou de sair do forno*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint2: {
+                type: "InteractionPoint",
+                x: utils.withGrid(1),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pizza quentinha que acabou de sair do forno*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint3: {
+                type: "InteractionPoint",
+                x: utils.withGrid(1),
+                y: utils.withGrid(7),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pizza quentinha que acabou de sair do forno*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint4: {
+                type: "InteractionPoint",
+                x: utils.withGrid(5),
+                y: utils.withGrid(4),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Um forno*"},
+                            {type: "textMessage", text:"*Parece que tem uma pizza dentro*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint5: {
+                type: "InteractionPoint",
+                x: utils.withGrid(6),
+                y: utils.withGrid(4),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Um forno*"},
+                            {type: "textMessage", text:"*Parece que tem uma pizza dentro*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint6: {
+                type: "InteractionPoint",
+                x: utils.withGrid(7),
+                y: utils.withGrid(4),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Um forno*"},
+                            {type: "textMessage", text:"*Não tem nada dentro*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint7: {
+                type: "InteractionPoint",
+                x: utils.withGrid(8),
+                y: utils.withGrid(4),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Um forno*"},
+                            {type: "textMessage", text:"*Não tem nada dentro*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint8: {
+                type: "InteractionPoint",
+                x: utils.withGrid(11),
+                y: utils.withGrid(5),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Está cheio de ingredientes congelados*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint9: {
+                type: "InteractionPoint",
+                x: utils.withGrid(12),
+                y: utils.withGrid(5),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Está cheio de ingredientes congelados*"}
+                        ]
+                    }
+                ]
+            },
         },
         cutsceneSpaces: {
             [utils.asGridCoord(5,10)]: [
@@ -440,7 +555,115 @@ window.OverworldMaps = {
                         ]
                     }
                 ]
-            }
+            },
+            interactionPoint1: {
+                type: "InteractionPoint",
+                x: utils.withGrid(9),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Parece que a pizza do dia é a margherita*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint2: {
+                type: "InteractionPoint",
+                x: utils.withGrid(10),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Parece que a pizza do dia é a margherita*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint3: {
+                type: "InteractionPoint",
+                x: utils.withGrid(11),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Parece que a pizza do dia é a margherita*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint4: {
+                type: "InteractionPoint",
+                x: utils.withGrid(12),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Parece que a pizza do dia é a margherita*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint5: {
+                type: "InteractionPoint",
+                x: utils.withGrid(5),
+                y: utils.withGrid(14),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint6: {
+                type: "InteractionPoint",
+                x: utils.withGrid(6),
+                y: utils.withGrid(14),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint7: {
+                type: "InteractionPoint",
+                x: utils.withGrid(7),
+                y: utils.withGrid(14),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint8: {
+                type: "InteractionPoint",
+                x: utils.withGrid(8),
+                y: utils.withGrid(14),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint9: {
+                type: "InteractionPoint",
+                x: utils.withGrid(23),
+                y: utils.withGrid(7),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Não faço ideia o que seja isso*"}
+                        ]
+                    }
+                ]
+            },
         },
         walls: function() {
             let walls = {};
@@ -546,6 +769,139 @@ window.OverworldMaps = {
                 y: utils.withGrid(4),
                 storyFlag: "STONE_SHOP",
                 pizzas: ["v002", "f002"]
+            },
+            interactionPoint1: {
+                type: "InteractionPoint",
+                x: utils.withGrid(3),
+                y: utils.withGrid(8),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pá de pizza moderna*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint2: {
+                type: "InteractionPoint",
+                x: utils.withGrid(3),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pá de pizza moderna*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint3: {
+                type: "InteractionPoint",
+                x: utils.withGrid(4),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pá de pizza tradicional*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint4: {
+                type: "InteractionPoint",
+                x: utils.withGrid(4),
+                y: utils.withGrid(10),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pá de pizza tradicional*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint5: {
+                type: "InteractionPoint",
+                x: utils.withGrid(2),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma caixa registradora*"},
+                            {type: "textMessage", text:"*Está cheia de dinheiro*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint6: {
+                type: "InteractionPoint",
+                x: utils.withGrid(7),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Os clássicos tempeiros que todo bom cozinheiro gosta*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint7: {
+                type: "InteractionPoint",
+                x: utils.withGrid(8),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Alguma coisa vermelha*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint8: {
+                type: "InteractionPoint",
+                x: utils.withGrid(7),
+                y: utils.withGrid(8),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Varios tipos de temperos diferentes*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint9: {
+                type: "InteractionPoint",
+                x: utils.withGrid(8),
+                y: utils.withGrid(8),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Varios tipos de temperos diferentes*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint10: {
+                type: "InteractionPoint",
+                x: utils.withGrid(7),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Varios tipos de temperos diferentes*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint11: {
+                type: "InteractionPoint",
+                x: utils.withGrid(8),
+                y: utils.withGrid(9),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Varios tipos de temperos diferentes*"}
+                        ]
+                    }
+                ]
             },
         },
         cutsceneSpaces: {
@@ -699,6 +1055,94 @@ window.OverworldMaps = {
                     }
                 ]
             },
+            interactionPoint1: {
+                type: "InteractionPoint",
+                x: utils.withGrid(4),
+                y: utils.withGrid(4),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Um forno*"},
+                            {type: "textMessage", text:"*Parece ter uma pizza dentro*"},
+                        ]
+                    }
+                ]
+            },
+            interactionPoint2: {
+                type: "InteractionPoint",
+                x: utils.withGrid(8),
+                y: utils.withGrid(10),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma caixa de pizza*"},
+                            {type: "textMessage", text:"*Nunca saberemos se tem uma pizza até abrirmos*"},
+                            {type: "textMessage", text:"*Mas o cheiro deixa óbvio*"},
+                        ]
+                    }
+                ]
+            },
+            interactionPoint3: {
+                type: "InteractionPoint",
+                x: utils.withGrid(1),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Duas garrafas de vinho*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint4: {
+                type: "InteractionPoint",
+                x: utils.withGrid(2),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma pizza vegetariana*"},
+                            {type: "textMessage", text:"*Que só não é deliciosa porque é da concorrência*"},
+                        ]
+                    }
+                ]
+            },
+            interactionPoint5: {
+                type: "InteractionPoint",
+                x: utils.withGrid(5),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Duas garrafas de vinho*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint6: {
+                type: "InteractionPoint",
+                x: utils.withGrid(6),
+                y: utils.withGrid(4),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma estante cheia de taças de vinho*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint7: {
+                type: "InteractionPoint",
+                x: utils.withGrid(7),
+                y: utils.withGrid(4),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Um estante cheia de taças de vinho*"}
+                        ]
+                    }
+                ]
+            },
         },
         cutsceneSpaces: {
             [utils.asGridCoord(5,12)]: [
@@ -718,6 +1162,7 @@ window.OverworldMaps = {
         walls: {
             [utils.asGridCoord(1,4)]: true,
             [utils.asGridCoord(3,4)]: true,
+            [utils.asGridCoord(3,5)]: true,
             [utils.asGridCoord(4,4)]: true,
             [utils.asGridCoord(6,4)]: true,
             [utils.asGridCoord(7,4)]: true,
@@ -838,11 +1283,61 @@ window.OverworldMaps = {
             },
             pizzaStone: {
                 type: "PizzaStone",
-                x: utils.withGrid(2),
-                y: utils.withGrid(9),
+                x: utils.withGrid(4),
+                y: utils.withGrid(7),
                 storyFlag: "STONE_STREET_NORTH",
                 pizzas: ["v001", "f001"]
-            }
+            },
+            interactionPoint1: {
+                type: "InteractionPoint",
+                x: utils.withGrid(2),
+                y: utils.withGrid(7),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*As novas pás de pizza do mercado*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint2: {
+                type: "InteractionPoint",
+                x: utils.withGrid(3),
+                y: utils.withGrid(7),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*As novas pás de pizza do mercado*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint3: {
+                type: "InteractionPoint",
+                x: utils.withGrid(12),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*É um anuncio de um novo filme*"},
+                            {type: "textMessage", text:"*Pizza Wars: O Havaí Contra-Ataca*"},
+                        ]
+                    }
+                ]
+            },
+            interactionPoint4: {
+                type: "InteractionPoint",
+                x: utils.withGrid(13),
+                y: utils.withGrid(6),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*É um anuncio de um novo filme*"},
+                            {type: "textMessage", text:"*Pizza Wars: O Havaí Contra-Ataca*"},
+                        ]
+                    }
+                ]
+            },
         },
         walls: {
             [utils.asGridCoord(2,7)]: true,
@@ -1008,7 +1503,55 @@ window.OverworldMaps = {
                         ]
                     }
                 ]
-            }
+            },
+            interactionPoint1: {
+                type: "InteractionPoint",
+                x: utils.withGrid(3),
+                y: utils.withGrid(5),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Duas garrafas de vinho apenas esperando para serem abertas*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint2: {
+                type: "InteractionPoint",
+                x: utils.withGrid(3),
+                y: utils.withGrid(7),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma deliciosa pizza*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint3: {
+                type: "InteractionPoint",
+                x: utils.withGrid(8),
+                y: utils.withGrid(10),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Uma deliciosa pizza*"}
+                        ]
+                    }
+                ]
+            },
+            interactionPoint4: {
+                type: "InteractionPoint",
+                x: utils.withGrid(11),
+                y: utils.withGrid(5),
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text:"*Acho que alguem saiu sem pagar a conta*"}
+                        ]
+                    }
+                ]
+            },
         },
         cutsceneSpaces: {
             [utils.asGridCoord(7,3)]: [

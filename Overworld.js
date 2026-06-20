@@ -24,7 +24,9 @@ class Overworld {
         Object.values(this.map.gameObjects).sort((a,b) => {
         return a.y - b.y;
         }).forEach(object => {
-            object.sprite.draw(this.ctx, cameraPerson);
+            if(object.sprite) {
+                object.sprite.draw(this.ctx, cameraPerson);
+            }
         })
 
         this.map.drawUpperImage(this.ctx, cameraPerson);
