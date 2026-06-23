@@ -41,7 +41,6 @@ class PlayerState {
         }
 
         utils.emitEvent("LineupChanged");
-        console.log(this);
     }
 
     swapLineup(oldId, incomingId) {

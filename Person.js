@@ -62,7 +62,6 @@ class Person extends GameObject {
 
             if(this.standBehaviorTimeout) {
                 clearTimeout(this.standBehaviorTimeout);
-                console.log("clear")
             }
             
             this.standBehaviorTimeout = setTimeout(() => {

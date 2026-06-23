@@ -125,13 +125,27 @@ class OverworldMap {
 
 
     checkForFootstepCutscene() {
-        const hero = this.gameObjects["hero"];
-        const match = this.cutsceneSpaces[`${hero.x},${hero.y}`];
+    const hero = this.gameObjects["hero"];
+    const matches = this.cutsceneSpaces[`${hero.x},${hero.y}`];
 
-        if(!this.isCutscenePlaying && match) {
-            this.startCutscene(match[0].events);
+    if (!this.isCutscenePlaying && matches) {
+        const relevantScenario = matches.find(scenario => {
+            if (scenario.disqualify) {
+                const isDisqualified = scenario.disqualify.some(flag => playerState.storyFlags[flag]);
+                if (isDisqualified) return false;
+            }
+            if (scenario.required) {
+                const hasAllRequired = scenario.required.every(flag => playerState.storyFlags[flag]);
+                if (!hasAllRequired) return false;
+            }
+            return true;
+        });
+
+        if (relevantScenario) {
+            this.startCutscene(relevantScenario.events);
         }
     }
+}
 }
 
 window.OverworldMaps = {

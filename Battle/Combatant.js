@@ -68,7 +68,6 @@ class Combatant {
     }
 
     update(changes = {}) {
-        console.log(this.name, this.team, changes.status);
         Object.keys(changes).forEach(key => {
             this[key] = changes[key]
         });

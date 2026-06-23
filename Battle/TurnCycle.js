@@ -19,9 +19,6 @@ class TurnCycle {
             caster,
             enemy
         })
-        console.log("CASTER:", caster?.name);
-        console.log("TARGET:", submission.target?.name);
-        console.log("ACTION:", submission.action?.name);
 
         if(submission.replacement) {
             await this.onNewEvent({
@@ -52,11 +49,6 @@ class TurnCycle {
                 caster,
                 target: submission.target
             }
-            console.log("EVENTO ENVIADO:", {
-                caster: event.caster?.name,
-                target: event.target?.name,
-                status: event.status
-            })
             await this.onNewEvent(event);
         }
 
