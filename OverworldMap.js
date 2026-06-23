@@ -611,7 +611,7 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                            {type: "textMessage", text:"Bem vindo a Avenida Anchovas"}
                         ]
                     }
                 ]
@@ -623,7 +623,7 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                            {type: "textMessage", text:"Bem vindo a Avenida Anchovas"}
                         ]
                     }
                 ]
@@ -635,7 +635,7 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                            {type: "textMessage", text:"Bem vindo a Avenida Anchovas"}
                         ]
                     }
                 ]
@@ -647,7 +647,7 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            {type: "textMessage", text:"Bem vindo a Alvenida Anchovas"}
+                            {type: "textMessage", text:"Bem vindo a Avenida Anchovas"}
                         ]
                     }
                 ]
@@ -1162,7 +1162,7 @@ window.OverworldMaps = {
         walls: {
             [utils.asGridCoord(1,4)]: true,
             [utils.asGridCoord(3,4)]: true,
-            [utils.asGridCoord(3,5)]: true,
+            [utils.asGridCoord(5,3)]: true,
             [utils.asGridCoord(4,4)]: true,
             [utils.asGridCoord(6,4)]: true,
             [utils.asGridCoord(7,4)]: true,
